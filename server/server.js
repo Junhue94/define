@@ -19,7 +19,8 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
 // Set Environment
-app.set('env', 'development');
+//app.set('env', 'development');
+app.set('env', 'production');
 
 // Database Connection
 // Setup connection to database
