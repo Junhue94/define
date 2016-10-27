@@ -1,0 +1,218 @@
+#dash-personal-accounts {
+    .content-main {
+        margin: 16px 0 0 0;
+
+        .callout {
+            padding: 8px 8px 0 8px;
+            margin: 0 0 8px 0;
+            border-radius: 5px;
+        }
+
+        .callout.callout-main {
+            margin: 0 0 16px 0;
+            border-radius: 5px;
+        }
+
+        span {
+            padding: 10px;
+            margin: 0 0 10px 0;
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+            background: #288eff;
+            border-radius: 5px;
+        }
+
+        p {
+            margin: 0 0 5px 0;
+            font-size: 0.85rem;
+        }
+    }
+}
+
+
+#dash-personal-transactions, #dash-personal-budget, #dash-personal-debt {
+    margin: 16px 0 0 0;
+
+    th {
+        font-size: 0.8rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    td {
+        font-size: 0.8rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .input-group {
+        .input-group-label {
+            padding: 0 10px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            background: #e1e1e1;
+        }
+
+        select {
+            height: 2rem;
+            font-size: 0.8rem;
+        }
+    }
+}
+
+
+#dash-personal-transactions, #dash-personal-budget {
+    #txn-list-tab {
+        padding: 16px 0;
+
+        p {
+            margin: 0;
+        }
+
+        p.txn-list-tab-date {
+            padding: 3px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-align: center;
+            background: #1dafff;
+            color: white;
+        }
+
+        table.txn-list-tab-bal {
+            tbody {
+                tr {
+                    th {
+                        text-align: left;
+                        background: white;
+                        border: 1px solid #c3c3c3;
+                        font-size: 0.85rem;
+                    }
+
+                    td {
+                        @extend th;
+                        font-size: 0.85rem;
+                        text-align: right;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        table.txn-list-tab-txn {
+            margin: 0;
+
+            tbody {
+                tr {
+                    border: 1px solid black;
+                    cursor: pointer;
+
+                    th {
+                        padding: 5px 10px;
+                        text-align: left;
+                        font-size: 0.8rem;
+                        background: white;
+
+                        p.th-cat {
+                            font-size: 0.75rem;
+                            font-style: italic;
+                            color: #939393;
+                        }
+                    }
+
+                    td {
+                        text-align: right;
+                        font-size: 0.8rem;
+                        font-weight: bold;
+                        background: white;
+                    }
+                }
+            }
+        }
+    }
+
+    #budget-list-tab {
+        @extend #txn-list-tab;
+
+        .per_budget_filter_period {
+            width: 100%;
+            height: 2rem;
+            font-size: 0.8rem;
+            background: white;
+            cursor: default;
+        }
+
+        table.txn-list-tab-txn {
+            tbody {
+                tr {
+                    td {
+                        padding: 5px 10px;
+
+                        p.td-surplus {
+                            font-size: 0.7rem;
+                            font-weight: normal;
+                        }
+
+                        p.td-amount {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+
+                tr.tr_budget_details {
+                    padding: 5px 10px 0 10px;
+                    border-bottom: none;
+                }
+
+                tr.tr_budget_progressbar {
+                    border-top: none;
+
+                    th {
+                        padding: 0 10px 7px 10px;
+
+                        .progress {
+                            margin: 0;
+                            background-color: #ececec;
+
+                            .progress-text {
+                                padding: 0 10px;
+                                font-size: 0.7rem;
+                            }
+
+                            .progress-meter {
+                                background-color: rgba(255, 188, 4, 0.5);
+                                top: -18px;
+                                max-width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+#dash-personal-trends {
+    margin: 16px 0 0 0;
+
+    /*Line Chart Thickness*/
+    path.c3-shape.c3-line {
+        stroke-width: 2px;
+    }
+
+    ul.tabs {
+        li.tabs-title {
+
+            a {
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        li.tabs-title:active {
+            background: green;
+        }
+    }
+}

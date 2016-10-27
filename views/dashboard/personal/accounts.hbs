@@ -1,0 +1,69 @@
+<header id="dash-personal-accounts">
+    <div class="row small-up-1 medium-up-2 large-up-3 content-main" data-equalizer data-equalize-by-row="true">
+        {{#each cat_acc_data}}
+            <div class="columns">
+                <div class="callout callout-main cursor-pointer" data-equalizer-watch>
+                    <span class="label">{{bank}}</span>
+                    {{#each account}}
+                        <div class="callout" data-open="{{id}}">
+                            <p>Account Name : {{name}}</p>
+                            <p>Balance : {{balance}}</p>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <!--Reveal-->
+    <div>
+        {{#each cat_acc_data}}
+            {{#each account}}
+                <div id="{{id}}" class="reveal" data-reveal data-reset-on-close="true">
+                    <form id="form-per-acc-edit" method="post">
+                        <div class="row">
+                            <div class="columns div-edit">
+                                <label>Bank
+                                    <input type="text" name="per-acc-bank" autocomplete="off" value="{{bank}}">
+                                </label>
+
+                                <label>Account Name
+                                    <input type="text" name="per-acc-name" autocomplete="off" value="{{name}}">
+                                </label>
+
+                                <div class="row">
+                                    <div class="medium-6 columns">
+                                        <button type="submit" class="button" formaction="/dashboard_post/per_acc/edit/{{id}}">Save</button>
+                                    </div>
+                                    <div class="medium-6 columns">
+                                        <button type="button" class="button color_del_btn">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="callout display-none div-del">
+                                <div class="row">
+                                    <p>Are you sure you want to delete this record?</p>
+                                    <div class="small-3 small-offset-6 columns">
+                                        <button type="submit" class="button btn-confirm-del" formaction="/dashboard_post/per_acc/del/{{id}}">Yes</button>
+                                    </div>
+                                    <div class="small-3 columns">
+                                        <button type="button" class="button btn-cancel-del">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <button type="button" class="close-button" data-close aria-label="Close modal">
+                        <span aria-hidden="true">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                </div>
+            {{/each}}
+        {{/each}}
+    </div>
+</header>
+
+<script src="/js/dashboard/personal/accounts.js"></script>

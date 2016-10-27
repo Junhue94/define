@@ -1,0 +1,4 @@
+{"_id":{"$oid":"57f131f95613180dec3fbef4"},"bank":"DBS","name":"Current","balance":0,"timestamp":1.475424761309e+12,"__v":0}
+{"_id":{"$oid":"57f132025613180dec3fbef5"},"bank":"DBS","name":"Savings Plus","balance":0,"timestamp":1.475424770538e+12,"__v":0}
+{"_id":{"$oid":"57f1320b5613180dec3fbef6"},"bank":"OCBC","name":"OCBC 365","balance":0,"timestamp":1.475424779927e+12,"__v":0}
+{"_id":{"$oid":"57f132195613180dec3fbef7"},"bank":"Standard Chartered","name":"E-Saver","balance":0,"timestamp":1.475424793903e+12,"__v":0}

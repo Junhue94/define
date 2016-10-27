@@ -1,3 +1,456 @@
+ul.tabs li a, ul.tabs li a:hover, ul.tabs li a:focus {
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+  background: white; }
+ul.tabs li.is-active a, ul.tabs li.is-active a:hover {
+  background: #21e3be;
+  color: black; }
 
+label.error {
+  color: red;
+  font-style: italic;
+  font-size: 0.7rem; }
+
+.no-padding {
+  padding: 0; }
+
+.no-margin {
+  margin: 0; }
+
+.no-border {
+  border: none; }
+
+.display-block {
+  display: block; }
+
+.display-none {
+  display: none; }
+
+.color_white {
+  color: white; }
+
+.cursor-pointer {
+  cursor: pointer; }
+
+.sidebar-menu-active {
+  border-left: 4px solid #19aa8d;
+  background: #1c2730; }
+  .sidebar-menu-active a span {
+    color: white; }
+
+.Income {
+  color: #00b109; }
+
+.Expense {
+  color: #ff0000; }
+
+.color_del_btn, .btn-confirm-del {
+  background: #e50000 !important; }
+
+.color_del_btn:hover, .btn-confirm-del:hover {
+  background: #cb0000 !important; }
+
+#layout_webpage {
+  background: black; }
+  #layout_webpage #webpage_menu .row.expanded {
+    background: #293846; }
+  #layout_webpage #webpage_menu ul li {
+    padding: 13px 10px; }
+    #layout_webpage #webpage_menu ul li a {
+      padding: 8px 10px;
+      background: #19a98c;
+      border-radius: 5px; }
+  #layout_webpage .reveal {
+    background: black;
+    border: white 3px solid; }
+    #layout_webpage .reveal .callout {
+      padding: 6px;
+      background: black; }
+      #layout_webpage .reveal .callout p {
+        font-size: 1.3rem;
+        text-align: center;
+        font-weight: bold;
+        color: white; }
+    #layout_webpage .reveal label {
+      font-size: 1rem;
+      margin: 0 0 16px 0;
+      color: white; }
+      #layout_webpage .reveal label label.error {
+        margin: 0;
+        color: #ff8080;
+        font-style: italic;
+        font-size: 0.8rem; }
+    #layout_webpage .reveal input {
+      margin: 0;
+      background: transparent;
+      font-size: 1rem;
+      height: 100%;
+      color: white; }
+    #layout_webpage .reveal .button {
+      width: 100%;
+      padding: 9px;
+      margin: 0;
+      font-size: 1rem;
+      background: #2fdff8;
+      color: black;
+      font-weight: bold;
+      border: none; }
+    #layout_webpage .reveal .button:hover {
+      background: #18c2d9; }
+    #layout_webpage .reveal .forgot_pass {
+      float: right; }
+      #layout_webpage .reveal .forgot_pass p {
+        font-size: 0.9rem;
+        font-style: italic; }
+    #layout_webpage .reveal .close-button {
+      top: 0.5rem;
+      right: 0.7rem;
+      font-size: 1rem; }
+    #layout_webpage .reveal .close-button:hover {
+      color: red; }
+
+#layout_dash .sidebar-div {
+  background: #293846;
+  min-height: 100vh; }
+#layout_dash .sidebar-div.hide-for-small-only {
+  width: 210px;
+  position: absolute; }
+#layout_dash .sidebar-div.show-for-small-only {
+  width: 65px;
+  position: absolute; }
+#layout_dash .sidebar-image {
+  text-align: center; }
+  #layout_dash .sidebar-image img {
+    margin: 15px 0 0 0;
+    height: 122px;
+    width: 122px;
+    border-radius: 50%;
+    border: 2px solid floralwhite; }
+  #layout_dash .sidebar-image p {
+    margin: 10px 0 15px 0;
+    color: white; }
+#layout_dash .sidebar-label {
+  vertical-align: middle; }
+#layout_dash li.sidebar-menu-li a, #layout_dash ul.dropdown li.sidebar-menu-li a {
+  color: #a7b1c2;
+  font-size: 0.9rem; }
+  #layout_dash li.sidebar-menu-li a i, #layout_dash ul.dropdown li.sidebar-menu-li a i {
+    margin: 0;
+    padding: 0 5px;
+    font-size: 0.9rem; }
+#layout_dash li.sidebar-menu-li a:after, #layout_dash ul.dropdown li.sidebar-menu-li a:after {
+  border-color: #a7b1c2 transparent transparent; }
+#layout_dash li.sidebar-menu-li ul li a, #layout_dash ul.dropdown li.sidebar-menu-li ul li a {
+  padding: 10px 10px 10px 35px;
+  font-size: 0.9rem; }
+#layout_dash ul.dropdown li.sidebar-menu-li ul.sidebar-small-sub-ul {
+  margin: 0;
+  border: none; }
+  #layout_dash ul.dropdown li.sidebar-menu-li ul.sidebar-small-sub-ul li a {
+    padding: 10px 15px;
+    color: white;
+    background: #293846; }
+  #layout_dash ul.dropdown li.sidebar-menu-li ul.sidebar-small-sub-ul li a:hover {
+    background: #1c2730; }
+#layout_dash .content-div {
+  padding: 0 0 0 210px; }
+@media screen and (max-width: 639px) {
+  #layout_dash .content-div {
+    padding: 0 0 0 65px; } }
+#layout_dash .content-header-label {
+  font-size: 1.2rem; }
+#layout_dash .content-header {
+  margin: 0;
+  height: 60px;
+  font-size: 1.2rem;
+  background: #f3f3f4;
+  border: none; }
+  #layout_dash .content-header .button {
+    margin: 0 0 0 10px;
+    padding: 5px;
+    float: right;
+    border-radius: 5px;
+    background: black; }
+    #layout_dash .content-header .button i {
+      color: white; }
+#layout_dash ul.actions-menu-list {
+  background: black;
+  border: 1px solid black;
+  padding: 10px 0 0 0; }
+  #layout_dash ul.actions-menu-list li {
+    padding: 8px 0; }
+    #layout_dash ul.actions-menu-list li a {
+      color: white;
+      vertical-align: middle;
+      line-height: 0;
+      font-size: 0.9rem; }
+      #layout_dash ul.actions-menu-list li a i {
+        margin: 0;
+        padding: 0 5px;
+        font-size: 0.8rem; }
+    #layout_dash ul.actions-menu-list li a:after {
+      border-color: white transparent transparent; }
+    #layout_dash ul.actions-menu-list li ul li {
+      padding: 0; }
+      #layout_dash ul.actions-menu-list li ul li a {
+        font-size: 0.85rem; }
+  #layout_dash ul.actions-menu-list .off-canvas-close {
+    padding: 0; }
+    #layout_dash ul.actions-menu-list .off-canvas-close a {
+      padding: 0 15px 8px 15px; }
+      #layout_dash ul.actions-menu-list .off-canvas-close a button {
+        width: 100%;
+        padding: 8px; }
+#layout_dash .close-button {
+  top: 0.5rem;
+  right: 0.7rem;
+  font-size: 1rem; }
+#layout_dash .close-button:hover {
+  color: red; }
+#layout_dash .off-canvas {
+  width: 200px; }
+#layout_dash .off-canvas-wrapper, #layout_dash .off-canvas, #layout_dash .actions-menu-list {
+  overflow: hidden; }
+#layout_dash .off-canvas-content {
+  box-shadow: none; }
+#layout_dash .reveal {
+  border: 2px solid #2199e8; }
+  #layout_dash .reveal label {
+    margin: 0 0 16px 0; }
+    #layout_dash .reveal label input, #layout_dash .reveal label select {
+      margin: 0; }
+  #layout_dash .reveal legend {
+    margin: 0;
+    font-size: 0.875rem; }
+  #layout_dash .reveal select, #layout_dash .reveal input {
+    font-size: 0.85rem;
+    height: 100%;
+    border-radius: 5px; }
+  #layout_dash .reveal input.input-radio, #layout_dash .reveal input.input-checkbox {
+    height: auto; }
+  #layout_dash .reveal #txn-add-details.callout {
+    padding: 0;
+    background: #d6d6d6;
+    text-align: center;
+    border-radius: 5px;
+    height: 100%; }
+  #layout_dash .reveal .callout {
+    padding: 6px;
+    background: black; }
+    #layout_dash .reveal .callout p {
+      text-align: center;
+      font-weight: bold;
+      color: white; }
+  #layout_dash .reveal .callout.div-del {
+    margin: 0;
+    border-radius: 5px;
+    border: none;
+    background: white; }
+    #layout_dash .reveal .callout.div-del button {
+      padding: 10px; }
+    #layout_dash .reveal .callout.div-del .btn-cancel-del {
+      background: #1d9ce6; }
+    #layout_dash .reveal .callout.div-del .btn-cancel-del:hover {
+      background: #1c8ed3; }
+    #layout_dash .reveal .callout.div-del p {
+      color: black; }
+  #layout_dash .reveal .button {
+    width: 100%;
+    margin: 0;
+    background: #1c91d8;
+    color: #ffffff;
+    font-weight: 400;
+    border: none;
+    border-radius: 5px; }
+  #layout_dash .reveal .button:hover {
+    background: #1c86c9; }
+  #layout_dash .reveal .input-readonly {
+    background: white;
+    cursor: text; }
+  #layout_dash .reveal .radio-button {
+    margin: 0; }
+    #layout_dash .reveal .radio-button label {
+      float: left;
+      width: 100%;
+      background: white;
+      border: 2px solid #000000;
+      border-radius: 5px;
+      cursor: pointer; }
+      #layout_dash .reveal .radio-button label span {
+        text-align: center;
+        display: block;
+        font-size: 1rem;
+        color: #8c8c8c; }
+      #layout_dash .reveal .radio-button label input {
+        position: absolute;
+        display: none; }
+    #layout_dash .reveal .radio-button input:checked + span {
+      background: #00fff6;
+      color: black;
+      font-weight: bold; }
+
+#dash-home {
+  margin: 0 0 16px 0; }
+  #dash-home .padding-right {
+    padding: 0 8px 0 0; }
+  #dash-home .padding-left {
+    padding: 0 0 0 8px; }
+  #dash-home .dash-home-container.callout {
+    margin: 16px 16px 0 16px;
+    padding: 0; }
+    #dash-home .dash-home-container.callout .dash-home-container-title.callout {
+      margin: 15px 0 10px 0;
+      padding: 5px;
+      background: #2199e8;
+      border: none;
+      color: white; }
+      #dash-home .dash-home-container.callout .dash-home-container-title.callout p {
+        text-align: center;
+        font-weight: bold;
+        font-size: 1rem; }
+  #dash-home #dash-home-budget .callout {
+    margin: 0 0 16px 0;
+    padding: 7px; }
+  #dash-home #dash-home-budget .label {
+    width: 100%;
+    text-align: center;
+    background: #1ab394; }
+  #dash-home #dash-home-budget .c3 {
+    max-height: 100px !important; }
+  #dash-home #dash-home-budget table {
+    margin: 3px 0 0 0; }
+    #dash-home #dash-home-budget table tbody, #dash-home #dash-home-budget table tr {
+      background: #1ab394;
+      border: none; }
+    #dash-home #dash-home-budget table th, #dash-home #dash-home-budget #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-transactions #txn-list-tab #dash-home #dash-home-budget table.txn-list-tab-bal tbody tr td, #dash-home #dash-home-budget #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-transactions #budget-list-tab #dash-home #dash-home-budget table.txn-list-tab-bal tbody tr td, #dash-home #dash-home-budget #dash-personal-budget #txn-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-budget #txn-list-tab #dash-home #dash-home-budget table.txn-list-tab-bal tbody tr td, #dash-home #dash-home-budget #dash-personal-budget #budget-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-budget #budget-list-tab #dash-home #dash-home-budget table.txn-list-tab-bal tbody tr td, #dash-home #dash-home-budget table td {
+      padding: 3px;
+      font-size: 0.8rem;
+      color: white; }
+    #dash-home #dash-home-budget table td {
+      text-align: center; }
+
+#dash-personal-accounts .content-main {
+  margin: 16px 0 0 0; }
+  #dash-personal-accounts .content-main .callout {
+    padding: 8px 8px 0 8px;
+    margin: 0 0 8px 0;
+    border-radius: 5px; }
+  #dash-personal-accounts .content-main .callout.callout-main {
+    margin: 0 0 16px 0;
+    border-radius: 5px; }
+  #dash-personal-accounts .content-main span {
+    padding: 10px;
+    margin: 0 0 10px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    background: #288eff;
+    border-radius: 5px; }
+  #dash-personal-accounts .content-main p {
+    margin: 0 0 5px 0;
+    font-size: 0.85rem; }
+
+#dash-personal-transactions, #dash-personal-budget, #dash-personal-debt {
+  margin: 16px 0 0 0; }
+  #dash-personal-transactions th, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal tbody tr #dash-personal-transactions td, #dash-personal-budget #budget-list-tab table.txn-list-tab-bal tbody tr #dash-personal-transactions td, #dash-personal-budget th, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal tbody tr #dash-personal-budget td, #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal tbody tr #dash-personal-budget td, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-budget #budget-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-debt th, #dash-personal-debt #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal tbody tr #dash-personal-debt td, #dash-personal-debt #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal tbody tr #dash-personal-debt td, #dash-personal-debt #dash-personal-budget #txn-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal tbody tr #dash-personal-debt td, #dash-personal-debt #dash-personal-budget #budget-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-budget #budget-list-tab table.txn-list-tab-bal tbody tr #dash-personal-debt td {
+    font-size: 0.8rem;
+    line-height: 1.2;
+    text-align: center; }
+  #dash-personal-transactions td, #dash-personal-budget td, #dash-personal-debt td {
+    font-size: 0.8rem;
+    line-height: 1.2;
+    text-align: center; }
+  #dash-personal-transactions .input-group .input-group-label, #dash-personal-budget .input-group .input-group-label, #dash-personal-debt .input-group .input-group-label {
+    padding: 0 10px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    background: #e1e1e1; }
+  #dash-personal-transactions .input-group select, #dash-personal-budget .input-group select, #dash-personal-debt .input-group select {
+    height: 2rem;
+    font-size: 0.8rem; }
+
+#dash-personal-transactions #txn-list-tab, #dash-personal-transactions #budget-list-tab, #dash-personal-budget #txn-list-tab, #dash-personal-budget #budget-list-tab {
+  padding: 16px 0; }
+  #dash-personal-transactions #txn-list-tab p, #dash-personal-transactions #budget-list-tab p, #dash-personal-budget #txn-list-tab p, #dash-personal-budget #budget-list-tab p {
+    margin: 0; }
+  #dash-personal-transactions #txn-list-tab p.txn-list-tab-date, #dash-personal-transactions #budget-list-tab p.txn-list-tab-date, #dash-personal-budget #txn-list-tab p.txn-list-tab-date, #dash-personal-budget #budget-list-tab p.txn-list-tab-date {
+    padding: 3px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+    background: #1dafff;
+    color: white; }
+  #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal tbody tr th, #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal tbody tr th, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal tbody tr th, #dash-personal-budget #budget-list-tab table.txn-list-tab-bal tbody tr th, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-budget #budget-list-tab table.txn-list-tab-bal tbody tr td {
+    text-align: left;
+    background: white;
+    border: 1px solid #c3c3c3;
+    font-size: 0.85rem; }
+  #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal tbody tr td, #dash-personal-budget #budget-list-tab table.txn-list-tab-bal tbody tr td {
+    font-size: 0.85rem;
+    text-align: right;
+    font-weight: bold; }
+  #dash-personal-transactions #txn-list-tab table.txn-list-tab-txn, #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn, #dash-personal-budget #txn-list-tab table.txn-list-tab-txn, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn {
+    margin: 0; }
+    #dash-personal-transactions #txn-list-tab table.txn-list-tab-txn tbody tr, #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr, #dash-personal-budget #txn-list-tab table.txn-list-tab-txn tbody tr, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr {
+      border: 1px solid black;
+      cursor: pointer; }
+      #dash-personal-transactions #txn-list-tab table.txn-list-tab-txn tbody tr th, #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr th, #dash-personal-transactions #txn-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr td, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr td, #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr td, #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr td, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr td, #dash-personal-budget #budget-list-tab table.txn-list-tab-bal #dash-personal-transactions #txn-list-tab table.txn-list-tab-txn tbody tr td, #dash-personal-budget #txn-list-tab table.txn-list-tab-txn tbody tr th, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr th, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr td, #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal #dash-personal-budget #txn-list-tab table.txn-list-tab-txn tbody tr td, #dash-personal-budget #txn-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr td, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr td, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr td, #dash-personal-budget #budget-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr td {
+        padding: 5px 10px;
+        text-align: left;
+        font-size: 0.8rem;
+        background: white; }
+        #dash-personal-transactions #txn-list-tab table.txn-list-tab-txn tbody tr th p.th-cat, #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr th p.th-cat, #dash-personal-transactions #txn-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr td p.th-cat, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr td p.th-cat, #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr td p.th-cat, #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr td p.th-cat, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr td p.th-cat, #dash-personal-budget #budget-list-tab table.txn-list-tab-bal #dash-personal-transactions #txn-list-tab table.txn-list-tab-txn tbody tr td p.th-cat, #dash-personal-budget #txn-list-tab table.txn-list-tab-txn tbody tr th p.th-cat, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr th p.th-cat, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr td p.th-cat, #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal #dash-personal-budget #txn-list-tab table.txn-list-tab-txn tbody tr td p.th-cat, #dash-personal-budget #txn-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr td p.th-cat, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr td p.th-cat, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr td p.th-cat, #dash-personal-budget #budget-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr td p.th-cat {
+          font-size: 0.75rem;
+          font-style: italic;
+          color: #939393; }
+      #dash-personal-transactions #txn-list-tab table.txn-list-tab-txn tbody tr td, #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr td, #dash-personal-budget #txn-list-tab table.txn-list-tab-txn tbody tr td, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr td {
+        text-align: right;
+        font-size: 0.8rem;
+        font-weight: bold;
+        background: white; }
+#dash-personal-transactions #budget-list-tab .per_budget_filter_period, #dash-personal-budget #budget-list-tab .per_budget_filter_period {
+  width: 100%;
+  height: 2rem;
+  font-size: 0.8rem;
+  background: white;
+  cursor: default; }
+#dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr td, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr td {
+  padding: 5px 10px; }
+  #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr td p.td-surplus, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr td p.td-surplus {
+    font-size: 0.7rem;
+    font-weight: normal; }
+  #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr td p.td-amount, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr td p.td-amount {
+    font-size: 1rem; }
+#dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_details, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_details {
+  padding: 5px 10px 0 10px;
+  border-bottom: none; }
+#dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar {
+  border-top: none; }
+  #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar th, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td, #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr.tr_budget_progressbar td, #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr.tr_budget_progressbar td, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar th, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr.tr_budget_progressbar td, #dash-personal-budget #budget-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr.tr_budget_progressbar td {
+    padding: 0 10px 7px 10px; }
+    #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar th .progress, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress, #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr.tr_budget_progressbar td .progress, #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar th .progress, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr.tr_budget_progressbar td .progress, #dash-personal-budget #budget-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress {
+      margin: 0;
+      background-color: #ececec; }
+      #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar th .progress .progress-text, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress .progress-text, #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr.tr_budget_progressbar td .progress .progress-text, #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress .progress-text, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress .progress-text, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar th .progress .progress-text, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress .progress-text, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress .progress-text, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr.tr_budget_progressbar td .progress .progress-text, #dash-personal-budget #budget-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress .progress-text {
+        padding: 0 10px;
+        font-size: 0.7rem; }
+      #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar th .progress .progress-meter, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress .progress-meter, #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr.tr_budget_progressbar td .progress .progress-meter, #dash-personal-transactions #budget-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress .progress-meter, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal #dash-personal-transactions #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress .progress-meter, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar th .progress .progress-meter, #dash-personal-transactions #txn-list-tab table.txn-list-tab-bal #dash-personal-budget #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress .progress-meter, #dash-personal-budget #txn-list-tab table.txn-list-tab-bal #budget-list-tab table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress .progress-meter, #dash-personal-budget #budget-list-tab table.txn-list-tab-txn table.txn-list-tab-bal tbody tr.tr_budget_progressbar td .progress .progress-meter, #dash-personal-budget #budget-list-tab table.txn-list-tab-bal table.txn-list-tab-txn tbody tr.tr_budget_progressbar td .progress .progress-meter {
+        background-color: rgba(255, 188, 4, 0.5);
+        top: -18px;
+        max-width: 100%; }
+
+#dash-personal-trends {
+  margin: 16px 0 0 0;
+  /*Line Chart Thickness*/ }
+  #dash-personal-trends path.c3-shape.c3-line {
+    stroke-width: 2px; }
+  #dash-personal-trends ul.tabs li.tabs-title a {
+    padding: 15px;
+    font-size: 0.9rem; }
+  #dash-personal-trends ul.tabs li.tabs-title:active {
+    background: green; }
 
 /*# sourceMappingURL=all_custom.css.map */

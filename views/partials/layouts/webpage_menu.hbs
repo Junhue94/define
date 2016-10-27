@@ -1,0 +1,78 @@
+<header id="webpage_menu">
+    <div class="row expanded">
+        <div class="columns">
+            <ul class="menu">
+                <li class="float-right"><a class="button" data-open="reveal-user-login">Login</a></li>
+                <li class="float-right"><a class="button" data-open="reveal-user-register">Register</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--Reveal-->
+    <div>
+        <!--Login-->
+        <div id="reveal-user-login" class="reveal" data-reveal data-reset-on-close="true">
+            <div class="columns">
+                <div class="callout">
+                    <p>Login</p>
+                </div>
+            </div>
+            <form id="form_user_login" action="" method="post">
+                <div class="row">
+                    <div class="columns">
+                        <label>Email Address
+                            <input type="email" name="user_email" autocomplete="off">
+                        </label>
+                        <label style="margin: 0 0 5px 0;">Password
+                            <input type="password" name="password">
+                        </label>
+                        <a class="forgot_pass" href=""><p>Forgot Password?</p></a>
+                        <button class="button" type="submit">Log In</button>
+                    </div>
+                </div>
+            </form>
+            <button type="button" class="close-button" data-close aria-label="Close modal">
+                <span aria-hidden="true">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </span>
+            </button>
+        </div>
+
+        <!--Registration-->
+        <div id="reveal-user-register" class="reveal" data-reveal data-reset-on-close="true">
+            <div class="columns">
+                <div class="callout">
+                    <p>Register</p>
+                </div>
+            </div>
+            <form id="form_user_register" action="/user_register" method="post">
+                <div class="row">
+                    <div class="columns">
+                        <label>Username
+                            <input type="text" name="username" autocomplete="off">
+                        </label>
+                        <label>Email Address
+                            <input type="email" name="user_email" autocomplete="off">
+                        </label>
+                        <label>Password
+                            <input id="password" type="password" name="password">
+                        </label>
+                        <label>Confirm Password
+                            <input type="password" name="password_confirm">
+                        </label>
+                        <button class="button" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <button type="button" class="close-button" data-close aria-label="Close modal">
+                <span aria-hidden="true">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script>
+<script src="/js/webpage/webpageLayout.js"></script>

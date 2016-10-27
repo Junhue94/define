@@ -1,0 +1,242 @@
+<header id="dash-personal-budget">
+    <div class="row">
+        <div class="columns">
+            <ul class="tabs" data-tabs id="budget-tab">
+                <li class="tabs-title is-active"><a href="#budget-list-tab" aria-selected="true">List</a></li>
+                <li class="tabs-title"><a href="#budget-table-tab">Table</a></li>
+            </ul>
+
+            <div class="tabs-content" data-tabs-content="budget-tab">
+                <div id="budget-list-tab" class="tabs-panel is-active">
+                    <script id="PerBudgetFilterTemplate" type="text/template">
+                        <div class="row">
+                            <div class="columns medium-12 large-6">
+                                <div class="input-group">
+                                    <span class="input-group-label">Account</span>
+                                    <select class="input-group-field" name="budget-filter-acc">
+                                        <option value="" selected>All Budgets</option>
+                                        <option value="All">All Accounts</option>
+                                        {{#each all_per_acc_name}}
+                                            <option value="{{id}}">{{acc_name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="columns medium-6 large-3">
+                                <div class="input-group">
+                                    <span class="input-group-label">Month</span>
+                                    <select class="input-group-field" name="budget-filter-month">
+                                        <option value="">All</option>
+                                        <option value="Jan">Jan</option>
+                                        <option value="Feb">Feb</option>
+                                        <option value="Mar">Mar</option>
+                                        <option value="Apr">Apr</option>
+                                        <option value="May">May</option>
+                                        <option value="Jun">Jun</option>
+                                        <option value="Jul">Jul</option>
+                                        <option value="Aug">Aug</option>
+                                        <option value="Sep">Sep</option>
+                                        <option value="Oct">Oct</option>
+                                        <option value="Nov">Nov</option>
+                                        <option value="Dec">Dec</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="columns medium-6 large-3">
+                                <div class="input-group">
+                                    <span class="input-group-label">Year</span>
+                                    <select class="input-group-field" name="budget-filter-year">
+                                        <option value="">All</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <script id="PerBudgetFiltrateTemplate" type="text/template">
+                        <div id="per_budget_filtrate">
+                            <% if (!_.isEmpty(data.remaining_budget)) { %>
+                            <div class="row">
+                                <div class="columns">
+                                    <table class="txn-list-tab-bal">
+                                        <tbody>
+                                        <tr>
+                                            <th>Remaining Budget</th>
+                                            <td class="<%= data.remaining_budget.type %>">
+                                                <%= data.remaining_budget.surplus %>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <% } %>
+
+                            <% _.each(data.budget_data, function(each_date) { %>
+                                <div class="row">
+                                    <div class="columns medium-12">
+                                        <p class="txn-list-tab-date"><%= each_date.period %></p>
+                                    </div>
+                                    <div class="columns medium-12">
+                                        <table class="txn-list-tab-txn">
+                                            <tbody>
+                                            <% _.each(each_date.budget, function(each_budget) { %>
+                                            <tr class="tr_budget_details" data-open="<%= each_budget._id %>">
+                                                <th>
+                                                    <p><%= each_budget.category %></p>
+                                                    <p class="th-cat">
+                                                        <% if (each_budget.account === null) { %>
+                                                            All Accounts
+                                                        <% } else { %>
+                                                            <%= each_budget.account.bank + ' - ' + each_budget.account.name %>
+                                                        <% }; %>
+                                                    </p>
+                                                </th>
+                                                <td>
+                                                    <p class="td-surplus">Surplus</p>
+                                                    <p class="td-amount <%= each_budget.surplus_color %>"><%= each_budget.remained %></p>
+                                                </td>
+                                            </tr>
+                                            <tr class="tr_budget_progressbar">
+                                                <th colspan="2">
+                                                    <div class="progress" role="progressbar" tabindex="0">
+                                                        <p class="progress-text"><%= 'Spent / Allocated: ' + each_budget.spent + ' / ' + each_budget.allocated %></p>
+                                                        <span class="progress-meter" style="width: <%= each_budget.utilized + '%' %>"></span>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                            <% }); %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div>
+                    </script>
+                </div>
+
+                <div id="budget-table-tab" class="tabs-panel">
+                    <div class="callout table-scroll">
+                        <table id="budget-table">
+                            <thead>
+                            <tr>
+                                <th>Period</th>
+                                <th>Bank</th>
+                                <th>Account</th>
+                                <th>Category</th>
+                                <th>Allocated</th>
+                                <th>Spent</th>
+                                <th>Remained</th>
+                                <th>% Utilized</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each per_budget_data}}
+                                <tr class="cursor-pointer" data-open="{{id}}">
+                                    <td>{{period_moment}}</td>
+                                    <td>{{isEqualandResult account.bank null 'All' account.bank}}</td>
+                                    <td>{{isEqualandResult account.name null 'All' account.name}}</td>
+                                    <td>{{category}}</td>
+                                    <td>{{allocated}}</td>
+                                    <td>{{spent}}</td>
+                                    <td>{{remained}}</td>
+                                    <td>{{utilized}}</td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Reveal-->
+    <div>
+        {{#each per_budget_data_by_period}}
+            {{#each budget}}
+                <div id="{{id}}" class="reveal" data-reveal data-reset-on-close="true">
+                    <form id="form-per-budget-edit" method="post">
+                        <div class=" div-edit">
+                            <label>Category
+                                <select name="budget-cat">
+                                    <option value="{{category}}" selected hidden>{{category}}</option>
+                                    <option value="All">All Categories</option>
+                                    <option value="Automobile">Automobile</option>
+                                    <option value="Clothing">Clothing</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Insurance">Insurance</option>
+                                    <option value="Transport">Transport</option>
+                                    <option value="Zipper">Zipper</option>
+                                </select>
+                            </label>
+
+                            <label>Account
+                                <select name="budget-account">
+                                    <option value="{{isEqualandResult account null 'All Accounts' account.id}}" selected hidden>{{acc_name}}</option>
+                                    <option value="All Accounts">All Accounts</option>
+                                    {{#each ../../all_per_acc_name}}
+                                        <option value="{{id}}">{{acc_name}}</option>
+                                    {{/each}}
+                                </select>
+                            </label>
+
+                            <label>Period
+                                <input class="input-readonly reveal-add-budget-period" name="budget-period" type="text" autocomplete="off" readonly value="{{period_moment}}">
+                            </label>
+
+                            <label>Amount
+                                <input type="text" name="budget-amount" autocomplete="off" value="{{allocated}}">
+                            </label>
+
+                            <div class="row">
+                                <div class="medium-6 columns">
+                                    <button type="submit" class="button" formaction="/dashboard_post/per_budget/edit/{{id}}">Save</button>
+                                </div>
+                                <div class="medium-6 columns">
+                                    <button type="button" class="button color_del_btn">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="callout div-del display-none">
+                            <div class="row">
+                                <p>Are you sure you want to delete this record?</p>
+                                <div class="small-3 small-offset-6 columns">
+                                    <button type="submit" class="button btn-confirm-del" formaction="/dashboard_post/per_budget/del/{{id}}">Yes</button>
+                                </div>
+                                <div class="small-3 columns">
+                                    <button type="button" class="button btn-cancel-del">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                </div>
+            {{/each}}
+        {{/each}}
+    </div>
+</header>
+
+<!--JQuery Validation-->
+<script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script>
+<!--Data Tables-->
+<script src="/packages/datatables.net/js/jquery.dataTables.js"></script>
+<script src="/packages/datatables.net-zf/js/dataTables.foundation.js"></script>
+<script src="/packages/datatables.net-responsive/js/dataTables.responsive.js"></script>
+<script src="/packages/datatables.net-zf/js/dataTables.foundation.js"></script>
+
+<script src="/node_modules/underscore/underscore.js"></script>
+<script src="/node_modules/backbone/backbone.js"></script>
+<script src="/node_modules/moment/moment.js"></script>
+<script src="/node_modules/async/dist/async.js"></script>
+
+<script src="/js/dashboard/personal/budget.js"></script>

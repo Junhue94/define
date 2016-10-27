@@ -1,0 +1,94 @@
+#layout_webpage {
+    background: black;
+
+    #webpage_menu {
+        .row.expanded {
+            background: #293846;
+        }
+
+        ul {
+            li {
+                padding: 13px 10px;
+
+                a {
+                    padding: 8px 10px;
+                    background: #19a98c;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+
+    .reveal {
+        background: black;
+        border: white 3px solid;
+
+        .callout {
+            padding: 6px;
+            background: black;
+
+            p {
+                font-size: 1.3rem;
+                text-align: center;
+                font-weight: bold;
+                color: white;
+            }
+        }
+
+        label {
+            font-size: 1rem;
+            margin: 0 0 16px 0;
+            color: white;
+
+            label.error {
+                margin: 0;
+                color: #ff8080;
+                font-style: italic;
+                font-size: 0.8rem;
+            }
+        }
+
+        input {
+            margin: 0;
+            background: transparent;
+            font-size: 1rem;
+            height: 100%;
+            color: white;
+        }
+
+        .button {
+            width: 100%;
+            padding: 9px;
+            margin: 0;
+            font-size: 1rem;
+            background: #2fdff8;
+            color: black;
+            font-weight: bold;
+            border: none;
+        }
+
+        .button:hover {
+            background: #18c2d9;
+        }
+
+        .forgot_pass {
+            float: right;
+
+            p {
+                font-size: 0.9rem;
+                font-style: italic;
+            }
+        }
+
+        .close-button {
+            top: 0.5rem;
+            right: 0.7rem;
+            font-size: 1rem;
+        }
+
+        .close-button:hover {
+            color: red;
+        }
+    }
+}
+

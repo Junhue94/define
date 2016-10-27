@@ -1,0 +1,135 @@
+<header id="dash-home">
+    <!--Budget Container-->
+    <div class="callout dash-home-container">
+        <div class="row">
+            <div class="columns">
+                <div class="callout dash-home-container-title">
+                    <p>Ongoing Budget</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="dash-home-budget" class="row small-up-1 medium-up-2 large-up-4">
+            <div class="columns">
+                <div class="callout">
+                    <span class="label">All Expenses</span>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th scope="row">Allocated</th>
+                            <td>$ 100.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Remaining</th>
+                            <td>$ 12.00</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div id="daily-budget-1"></div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="callout">
+                    <span class="label">Clothing</span>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th scope="row">Allocated</th>
+                            <td>$ 100.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Remaining</th>
+                            <td>$ 12.00</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div id="daily-budget-2"></div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="callout">
+                    <span class="label">Groceries, Food</span>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th scope="row">Allocated</th>
+                            <td>$ 100.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Remaining</th>
+                            <td>$ 12.00</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div id="daily-budget-3"></div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="callout">
+                    <span class="label">Recreation</span>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th scope="row">Allocated</th>
+                            <td>$ 100.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Remaining</th>
+                            <td>$ 12.00</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div id="daily-budget-4"></div>
+                </div>
+            </div>
+        </div>
+    </div><!--End Budget Container-->
+
+    <div class="callout dash-home-container no-border">
+        <div class="row">
+            <!--Expense Container-->
+            <div class="medium-6 columns padding-right">
+                <div class="callout no-padding">
+                    <div class="row">
+                        <div class="columns">
+                            <div class="callout dash-home-container-title">
+                                <p>Expenses (Last 7 Days)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="dash-home-expense" class="row">
+                        <div class="columns">
+                            <div id="dash-home-expense-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--End Expense Container-->
+
+            <!--Account Balances Container-->
+            <div class="medium-6 columns padding-left">
+                <div class="callout no-padding">
+                    <div class="row">
+                        <div class="columns">
+                            <div class="callout dash-home-container-title">
+                                <p>Account Balances (Last 7 Days)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="dash-home-account" class="row">
+                        <div class="columns">
+                            <div id="dash-home-account-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--Account Balances Container-->
+        </div>
+    </div>
+</header>
+
+<!--D3-->
+<script src="/node_modules/d3/d3.js"></script>
+<!--C3-->
+<script src="/node_modules/c3/c3.js"></script>
+<script src="/js/dashboard/home.js"></script>

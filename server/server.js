@@ -19,11 +19,13 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
 // Set Environment
-//app.set('env', 'development');
-app.set('env', 'production');
+app.set('env', 'development');
+//app.set('env', 'production');
 
 // Database Connection
 // Setup connection to database
+require('mongoose-moment')(mongoose);
+require('mongoose-double')(mongoose);
 mongoose.Promise = global.Promise;
 if (app.get('env') === 'development') {
     mongoose.connect('mongodb://localhost/define');
@@ -50,7 +52,16 @@ var main = exphbs.create({
     // Define views directory
     layoutsDir: path.join(app.get('views'), 'layouts'),
     // Define partials directory
-    partialsDir: [path.join(app.get('views'), 'partials')]
+    partialsDir: [path.join(app.get('views'), 'partials')],
+    helpers: {
+        isEqualandResult: function (input, output, result_if, result_else) {
+            if (input === output) {
+                return result_if;
+            } else {
+                return result_else
+            }
+        }
+    }
 });
 
 app.engine('hbs', main.engine);
@@ -122,6 +133,7 @@ app.use(expressValidator({
 app.use(function (req, res, next) {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
     // Put user into res.locals for easy access from templates
     res.locals.user = req.user || null;
     next();
@@ -147,7 +159,7 @@ if (app.get('env') === 'development') {
         res.render('error_page', {
             message: err.message,
             error: err,
-            layout: 'main'
+            layout: 'error_pageLayout'
         });
     });
 }
@@ -158,7 +170,7 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error_page', {
         message: err.message,
-        layout: 'main'
+        layout: 'error_pageLayout'
     });
 });
 

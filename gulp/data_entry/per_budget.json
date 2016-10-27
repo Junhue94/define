@@ -1,0 +1,7 @@
+{"_id":{"$oid":"5806241234035b06903df729"},"category":"Automobile","account":{"$oid":"57f131f95613180dec3fbef4"},"period":1.4779296e+12,"allocated":"60.00","timestamp":1.476797458609e+12,"__v":0}
+{"_id":{"$oid":"5806243934035b06903df72a"},"category":"Food","account":{"$oid":"57f1320b5613180dec3fbef6"},"period":1.4673024e+12,"allocated":"33.00","timestamp":1.476797497992e+12,"__v":0}
+{"_id":{"$oid":"580624a634035b06903df72d"},"category":"Automobile","account":{"$oid":"57f132025613180dec3fbef5"},"period":1.4752512e+12,"allocated":"911.00","timestamp":1.476797606027e+12,"__v":0}
+{"_id":{"$oid":"58062684c8ced311d4c08f88"},"category":"All","account":{"$oid":"57f131f95613180dec3fbef4"},"period":1.4647104e+12,"allocated":"43.00","timestamp":1.476798084081e+12,"__v":0}
+{"_id":{"$oid":"580626c54973f507341a588c"},"category":"Food","account":null,"period":1.4752512e+12,"allocated":"44.00","timestamp":1.476798149049e+12,"__v":0}
+{"_id":{"$oid":"580627c6907ae4014c70c8fa"},"category":"Clothing","account":null,"period":1.4647104e+12,"allocated":"65.00","timestamp":1.476798406543e+12,"__v":0}
+{"_id":{"$oid":"580627f4907ae4014c70c8fb"},"category":"Food","account":null,"period":1.454256e+12,"allocated":"123.00","timestamp":1.476798452201e+12,"__v":0}

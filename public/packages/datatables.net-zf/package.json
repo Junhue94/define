@@ -1,0 +1,66 @@
+{
+  "name": "datatables.net-zf",
+  "version": "1.10.12",
+  "description": "DataTables for jQuery with styling for [Zurb Foundation](http://foundation.zurb.com/)",
+  "files": [
+    "js/dataTables.foundation.js",
+    "css/dataTables.foundation.css",
+    "images/sort_asc.png",
+    "images/sort_asc_disabled.png",
+    "images/sort_both.png",
+    "images/sort_desc.png",
+    "images/sort_desc_disabled.png"
+  ],
+  "main": "js/dataTables.foundation.js",
+  "style": "css/dataTables.foundation.css",
+  "keywords": [
+    "filter",
+    "sort",
+    "DataTables",
+    "jQuery",
+    "table",
+    "Foundation"
+  ],
+  "homepage": "https://datatables.net",
+  "bugs": {
+    "url": "https://datatables.net/forums"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "SpryMedia Ltd",
+    "url": "http://datatables.net"
+  },
+  "dependencies": {
+    "jquery": ">=1.7",
+    "datatables.net": ">=1.10.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataTables/Dist-DataTables-Foundation.git"
+  },
+  "_id": "datatables.net-zf@1.10.12",
+  "dist": {
+    "shasum": "a7c96a23aebec6d18fc639449756c0abf1a2fd17",
+    "tarball": "https://registry.npmjs.org/datatables.net-zf/-/datatables.net-zf-1.10.12.tgz"
+  },
+  "_from": "datatables.net-zf@*",
+  "_npmVersion": "1.3.6",
+  "_npmUser": {
+    "name": "datatables",
+    "email": "allan@datatables.net"
+  },
+  "maintainers": [
+    {
+      "name": "datatables",
+      "email": "npm@datatables.net"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/datatables.net-zf-1.10.12.tgz_1463749452166_0.5754816753324121"
+  },
+  "directories": {},
+  "_shasum": "a7c96a23aebec6d18fc639449756c0abf1a2fd17",
+  "_resolved": "https://registry.npmjs.org/datatables.net-zf/-/datatables.net-zf-1.10.12.tgz",
+  "readme": "ERROR: No README data found!"
+}

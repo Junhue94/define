@@ -13,12 +13,13 @@
     <link rel="stylesheet" href="/stylesheets/all_custom.css">
 </head>
 
-<body id="layout_main">
+<body id="layout_webpage">
+    {{>layouts/webpage_menu}}
     {{{body}}}
 
     <!--Foundation-->
     <script src="/node_modules/foundation-sites/vendor/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/foundation-sites/.customizer/js/vendor/foundation.js"></script>
+    <script src="/node_modules/foundation-sites/dist/foundation.js"></script>
 
     <script>
         $(document).ready(function () {

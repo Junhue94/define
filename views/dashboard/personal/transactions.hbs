@@ -1,0 +1,332 @@
+<header id="dash-personal-transactions">
+    <!--Data-->
+    <div class="row">
+        <div class="medium-12 columns">
+            <ul class="tabs" data-tabs id="txn-tab">
+                <li class="tabs-title is-active"><a href="#txn-list-tab" aria-selected="true">List</a></li>
+                <li class="tabs-title"><a href="#txn-table-tab">Table</a></li>
+            </ul>
+
+            <div class="tabs-content" data-tabs-content="txn-tab">
+                <div id="txn-list-tab" class="tabs-panel is-active">
+                    <script id="PerTxnFilterTemplate" type="text/template">
+                        <div class="row">
+                            <div class="columns medium-12 large-6">
+                                <div class="input-group">
+                                    <span class="input-group-label">Account</span>
+                                    <select class="input-group-field" name="txn-filter-acc">
+                                        <option value="" selected>All Accounts</option>
+                                        {{#each all_per_acc_name}}
+                                            <option value="{{id}}">{{acc_name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="columns medium-12 large-6">
+                                <div class="input-group">
+                                    <span class="input-group-label">Type</span>
+                                    <select class="input-group-field" name="txn-filter-type">
+                                        <option value="" selected>Income & Expense</option>
+                                        <option value="Income">Income</option>
+                                        <option value="Expense">Expense</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="columns medium-12 large-6">
+                                <div class="input-group">
+                                    <span class="input-group-label">Period</span>
+                                    <select class="input-group-field" name="txn-filter-period">
+                                        <option value="all_txns" selected>All</option>
+                                        <option value="this_month">This Month</option>
+                                        <option value="last_month">Last Month</option>
+                                        <option value="next_month">Next Month</option>
+                                        <option value="last_7_days">Last 7 Days</option>
+                                        <option value="last_30_days">Last 30 Days</option>
+                                        <option value="last_60_days">Last 60 Days</option>
+                                        <option value="year_to_date">Year to Date</option>
+                                        <option value="past_txns">Past Transactions</option>
+                                        <option value="post_dated_txns">Post-Dated Transactions</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="columns medium-12 large-6">
+                                <div class="input-group">
+                                    <span class="input-group-label">Category</span>
+                                    <select class="input-group-field" name="txn-filter-cat">
+                                        <option value="" selected>All Categories</option>
+                                        <option value="Automobile">Automobile</option>
+                                        <option value="Insurance">Insurance</option>
+                                        <option value="Transport">Transport</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                    <script id="PerTxnFiltrateTemplate" type="text/template">
+                        <div id="per_txn_filtrate">
+                            <% if (!_.isEmpty(data.closing_bal)) { %>
+                            <div class="row">
+                                <div class="columns">
+                                    <table class="txn-list-tab-bal">
+                                        <tbody>
+                                        <tr>
+                                            <th>Closing Balance</th>
+                                            <td class="<%= data.closing_bal.type %>">
+                                                <%= data.closing_bal.balance %>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <% } %>
+
+                            <% _.each(data.txn_data, function(each_date) { %>
+                            <div class="row">
+                                <div class="columns medium-12">
+                                    <p class="txn-list-tab-date"><%= each_date.date %></p>
+                                </div>
+                                <div class="columns medium-12">
+                                    <table class="txn-list-tab-txn">
+                                        <tbody>
+                                        <% _.each(each_date.txn, function(each_txn) { %>
+                                        <tr data-open="<%= each_txn._id %>">
+                                            <th>
+                                                <p><%= each_txn.desc %></p>
+                                                <p class="th-cat"><%= each_txn.category %></p>
+                                            </th>
+                                            <td class="<%= each_txn.type %>"><%= each_txn.amount %></td>
+                                        </tr>
+                                        <% }); %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <% }); %>
+                        </div>
+                    </script>
+                </div>
+
+                <div id="txn-table-tab" class="tabs-panel">
+                    <div class="callout table-scroll">
+                        <table id="txn-table">
+                            <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Bank</th>
+                                <th>Accounts</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Pmt Mode</th>
+                                <th>Payee</th>
+                                <th>Reminder</th>
+                                <th>Status</th>
+                                <th>Recur</th>
+                                <th>R.Freq</th>
+                                <th>R.Date</th>
+                                <th>R.Times</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each per_txn_data}}
+                                <tr class="cursor-pointer" data-open="{{id}}">
+                                    <td>{{date_moment}}</td>
+                                    <td>{{type}}</td>
+                                    <td>{{account.bank}}</td>
+                                    <td>{{account.name}}</td>
+                                    <td>{{desc}}</td>
+                                    <td>{{category}}</td>
+                                    <td>{{amount}}</td>
+                                    <td>{{pmt_mode}}</td>
+                                    <td>{{payee}}</td>
+                                    <td>{{reminder}}</td>
+                                    <td>{{status}}</td>
+                                    <td>{{recurring.option}}</td>
+                                    <td>{{recurring.frequency}}</td>
+                                    <td>{{recurring.start_date}}</td>
+                                    <td>{{recurring.no_of_pmt}}</td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Reveal-->
+    <div>
+        {{#each per_txn_data_by_date}}
+            {{#each txn}}
+                <div id="{{id}}" class="reveal" data-reveal data-reset-on-close="true">
+                    <form id="form-per-txn-edit" method="post">
+                        <div class="div-edit">
+                            <div class="row radio-button">
+                                <div class="medium-6 columns">
+                                    <label>
+                                        <input type="radio" name="txn-type" value="Income" {{isEqualandResult type 'Income' 'checked' ''}}><span>Income</span>
+                                    </label>
+                                </div>
+                                <div class="medium-6 columns">
+                                    <label>
+                                        <input type="radio" name="txn-type" value="Expense" {{isEqualandResult type 'Expense' 'checked' ''}}><span>Expense</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="columns">
+                                    <label>Date
+                                        <input class="input-readonly reveal-add-txn-date" name="txn-date" type="text" autocomplete="off" readonly value="{{date_form}}">
+                                    </label>
+
+                                    <label>Account
+                                        <select name="txn-account">
+                                            <option value="{{account._id}}" selected hidden>{{account.acc_name}}</option>
+                                            {{#each ../../all_per_acc_name}}
+                                                <option value="{{id}}">{{acc_name}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </label>
+
+                                    <label>Description
+                                        <input type="text" name="txn-desc" autocomplete="off" value="{{desc}}">
+                                    </label>
+
+                                    <label>Category
+                                        <select name="txn-cat">
+                                            <option value="{{category}}" selected hidden>{{category}}</option>
+                                            <option value="Automobile">Automobile</option>
+                                            <option value="Clothing">Clothing</option>
+                                            <option value="Food">Food</option>
+                                            <option value="Insurance">Insurance</option>
+                                            <option value="Transport">Transport</option>
+                                            <option value="Zipper">Zipper</option>
+                                            <option id="option-txn-cat-other" value="Others">Others</option>
+                                        </select>
+                                        <input class="display-none" name="txn-cat-others" type="text" placeholder="Other Category" autocomplete="off">
+                                    </label>
+
+                                    <label>Amount
+                                        <input type="text" name="txn-amount" autocomplete="off" value="{{amount}}">
+                                    </label>
+
+                                    <div class="row">
+                                        <fieldset class="medium-12 columns">
+                                            <legend>Recurring Transaction</legend>
+                                            <input id="txn-non-recurring-{{id}}" class="input-radio" type="radio" name="txn-recurring" value="No" {{isEqualandResult recurring.option 'No' 'checked' ''}}>
+                                            <label for="txn-non-recurring-{{id}}">Non-Recurring</label>
+                                            <input id="txn-recurring-{{id}}" class="input-radio" type="radio" name="txn-recurring" value="Yes" {{isEqualandResult recurring.option 'Yes' 'checked' ''}}>
+                                            <label for="txn-recurring-{{id}}">Recurring</label>
+                                        </fieldset>
+                                    </div>
+                                    <!--Recurring Income-->
+                                    <div class="row {{isEqualandResult recurring.option 'No' 'display-none' ''}} txn-recurring-input">
+                                        <div class="medium-3 columns">
+                                            <label>Frequency
+                                                <select name="txn-recurring-freq">
+                                                    <option value="{{recurring.frequency}}" selected hidden>{{recurring.frequency}}</option>
+                                                    <option value="Daily">Daily</option>
+                                                    <option value="Weekly">Weekly</option>
+                                                    <option value="Monthly">Monthly</option>
+                                                    <option value="Yearly">Yearly</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                        <div class="medium-6 columns">
+                                            <label>Start Date
+                                                <input class="input-readonly reveal-add-txn-date-start" name="txn-recurring-start-date" type="text" value="{{recurring.start_date}}" readonly>
+                                            </label>
+                                        </div>
+                                        <div class="medium-3 columns">
+                                            <label>No. of Payments
+                                                <input type="text" name="txn-recurring-no-of-pmt" autocomplete="off" value="{{recurring.no_of_pmt}}">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!--Additional Details-->
+                                    <div>
+                                        <label>Payment Mode
+                                            <select name="txn-pmt-mode">
+                                                <option value="{{pmt_mode}}" selected hidden>{{pmt_mode}}</option>
+                                                <option value="Cash">Cash</option>
+                                                <option value="Credit Card">Credit Card</option>
+                                                <option id="option-txn-pmt-mode-other" value="Others">Others</option>
+                                            </select>
+                                            <input class="display-none" name="txn-pmt-mode-others" type="text" placeholder="Other Payment Mode" autocomplete="off">
+                                        </label>
+
+                                        <label>Payee
+                                            <input type="text" name="txn-payee" autocomplete="off" value="{{payee}}">
+                                        </label>
+
+                                        <label>Reminder
+                                            <input class="input-readonly reveal-add-txn-reminder" name="txn-reminder" type="text" autocomplete="off" value="{{reminder}}" readonly>
+                                        </label>
+
+                                        <label>Status
+                                            <select name="txn-status">
+                                                <option value="{{status}}" selected hidden>{{status}}</option>
+                                                <option value="Uncleared">Uncleared</option>
+                                                <option value="Cleared">Cleared</option>
+                                                <option value="Reconciled">Reconciled</option>
+                                                <option value="Void">Void</option>
+                                            </select>
+                                        </label>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="medium-6 columns">
+                                            <button type="submit" class="button" formaction="/dashboard_post/per_txn/edit/{{id}}">Save</button>
+                                        </div>
+                                        <div class="medium-6 columns">
+                                            <button type="button" class="button color_del_btn">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="callout div-del display-none">
+                            <div class="row">
+                                <p>Are you sure you want to delete this record?</p>
+                                <div class="small-3 small-offset-6 columns">
+                                    <button type="submit" class="button btn-confirm-del" formaction="/dashboard_post/per_txn/del/{{id}}">Yes</button>
+                                </div>
+                                <div class="small-3 columns">
+                                    <button type="button" class="button btn-cancel-del">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <button type="button" class="close-button" data-close aria-label="Close modal">
+                        <span aria-hidden="true">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                </div>
+            {{/each}}
+        {{/each}}
+    </div>
+</header>
+
+<!--JQuery Validation-->
+<script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script>
+<!--Data Tables-->
+<script src="/packages/datatables.net/js/jquery.dataTables.js"></script>
+<script src="/packages/datatables.net-zf/js/dataTables.foundation.js"></script>
+<script src="/packages/datatables.net-responsive/js/dataTables.responsive.js"></script>
+<script src="/packages/datatables.net-zf/js/dataTables.foundation.js"></script>
+
+<script src="/node_modules/underscore/underscore.js"></script>
+<script src="/node_modules/backbone/backbone.js"></script>
+<script src="/node_modules/moment/moment.js"></script>
+<script src="/node_modules/async/dist/async.js"></script>
+
+<script src="/js/dashboard/personal/transactions.js"></script>

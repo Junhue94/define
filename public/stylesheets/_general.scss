@@ -1,0 +1,78 @@
+ul.tabs {
+    li {
+        a, a:hover, a:focus {
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: black;
+            background: white;
+        }
+    }
+
+    li.is-active {
+        a, a:hover {
+            background: #21e3be;
+            color: black;
+        }
+    }
+}
+
+label.error {
+    color: red;
+    font-style: italic;
+    font-size: 0.7rem;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.no-border {
+    border: none;
+}
+
+.display-block {
+    display: block;
+}
+
+.display-none {
+    display: none;
+}
+
+.color_white {
+    color: white;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.sidebar-menu-active {
+    border-left: 4px solid #19aa8d;
+    background: #1c2730;
+    a {
+        span {
+            color: white;
+        }
+    }
+}
+
+.Income {
+    color: #00b109;
+}
+
+.Expense {
+    color: #ff0000;
+}
+
+.color_del_btn, .btn-confirm-del {
+    background: #e50000 !important;
+}
+
+.color_del_btn:hover, .btn-confirm-del:hover {
+    background: #cb0000 !important;
+}

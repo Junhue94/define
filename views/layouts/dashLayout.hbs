@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <!--Foundation-->
+    <link rel="stylesheet" href="/node_modules/foundation-sites/dist/foundation.min.css">
+    <link rel="stylesheet" href="/node_modules/foundation-datepicker/css/foundation-datepicker.css">
+    <!--DataTables-->
+    <link rel="stylesheet" href="/packages/datatables.net-zf/css/dataTables.foundation.css">
+    <!--C3-->
+    <link rel="stylesheet" href="/node_modules/c3/c3.css">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.css">
+    <!--Custom Stylesheet-->
+    <link rel="stylesheet" href="/stylesheets/all_custom.css">
+
+    <!--Foundation-->
+    <script src="/node_modules/foundation-sites/vendor/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/foundation-sites/dist/foundation.js"></script>
+    <script src="/node_modules/foundation-datepicker/js/foundation-datepicker.js"></script>
+    <!--JQuery-->
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script>
+
+</head>
+
+<body id="layout_dash">
+     <!--Container-->
+    <div class="row column expanded no-padding">
+        <!--Sidebar (Medium / Large)-->
+        <div class="hide-for-small-only no-padding sidebar-div">
+            <!--Item List-->
+            <ul class="vertical menu sidebar-ul" data-accordion-menu>
+                {{>layouts/dash_sidemenu}}
+            </ul>
+        </div><!--End Sidebar-->
+
+        <!--Sidebar (Small)-->
+        <div class="show-for-small-only no-padding sidebar-div">
+            <!--Item List-->
+            <ul class="vertical dropdown menu sidebar-ul" data-dropdown-menu>
+                {{>layouts/dash_sidemenu}}
+            </ul>
+        </div><!--End Sidebar-->
+
+        <!--Content-->
+        <div class="columns content-div no-padding">
+            <div class="row">
+                <div class="large-12 columns no-padding content-header-div">
+                    <div class="callout content-header">
+                        <span class="hide-for-small-only">{{page_title}}</span>
+                        <span class="button">
+                            <a href="#"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+                        </span>
+                        <span class="button">
+                            <a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                        </span>
+                        <span id="actions-btn" class="button" data-toggle="actions-menu">
+                            <a href="#">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!--Actions Menu-->
+            <div class="off-canvas-wrapper">
+                <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+                    <div class="off-canvas position-right" id="actions-menu" data-off-canvas data-position="right">
+                        <!-- Menu -->
+                        <ul class="vertical menu actions-menu-list" data-accordion-menu>
+                            <li style="display: none;"><a href="#"></a></li>
+                            <li class="off-canvas-close">
+                                <a href="#" data-close>
+                                    <button class="button">Close</button>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">Personal</a>
+                                <ul class="menu vertical nested">
+                                    <li>
+                                        <a href="#" data-open="reveal-add-account">
+                                            <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                                            <span>Add Account</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-open="reveal-add-transaction">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            <span>Add Transaction</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-open="reveal-add-budget">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            <span>Add Budget</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-open="reveal-add-debt">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                            <span>Add Debt</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Investment</a>
+                                <ul class="menu vertical nested">
+                                    <li>
+                                        <a href="#">
+                                            <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                                            <span>Add Account</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="off-canvas-content" data-off-canvas-content>
+                        {{{body}}}
+                    </div>
+                </div>
+            </div><!--End Actions Menu-->
+        </div>
+
+        <!--Reveal-->
+        <div>
+            <!--Add Account-->
+            <div id="reveal-add-account" class="reveal" data-reveal data-reset-on-close="true">
+                <div class="columns">
+                    <div class="callout">
+                        <p>Add Account</p>
+                    </div>
+                </div>
+
+                <form id="form-per-acc" action="/dashboard_post/per_acc" method="post">
+                    <div class="row">
+                        <div class="columns">
+                            <label>Bank
+                                <input type="text" name="per-acc-bank" autocomplete="off">
+                            </label>
+
+                            <label>Account Name
+                                <input type="text" name="per-acc-name" autocomplete="off">
+                            </label>
+
+                            <button type="submit" class="button">Create</button>
+                        </div>
+                    </div>
+                </form>
+
+                <button type="button" class="close-button" data-close aria-label="Close modal">
+                    <span aria-hidden="true">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                </button>
+            </div><!--End Add Account-->
+
+            <!--Add Transaction-->
+            <div id="reveal-add-transaction" class="reveal" data-reveal data-reset-on-close="true">
+                <div class="columns">
+                    <div class="callout">
+                        <p>Add Transaction</p>
+                    </div>
+                </div>
+
+                <form id="form-per-txn" action="/dashboard_post/per_txn" method="post">
+                    <div class="row radio-button">
+                        <div class="medium-6 columns">
+                            <label>
+                                <input type="radio" name="txn-type" value="Income" checked><span>Income</span>
+                            </label>
+                        </div>
+
+                        <div class="medium-6 columns">
+                            <label>
+                                <input type="radio" name="txn-type" value="Expense"><span>Expense</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="columns">
+                            <label>Date
+                                <input class="input-readonly reveal-add-txn-date" name="txn-date" type="text" autocomplete="off" readonly value="{{current_date_format}}">
+                            </label>
+
+                            <label>Account
+                                <select name="txn-account">
+                                    <option value="" selected disabled hidden></option>
+                                    {{#each all_per_acc_name}}
+                                        <option value="{{id}}">{{acc_name}}</option>
+                                    {{/each}}
+                                </select>
+                            </label>
+
+                            <label>Description
+                                <input type="text" name="txn-desc" autocomplete="off">
+                            </label>
+
+                            <label>Category
+                                <select name="txn-cat">
+                                    <option value="" selected disabled hidden></option>
+                                    <option value="Automobile">Automobile</option>
+                                    <option value="Clothing">Clothing</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Insurance">Insurance</option>
+                                    <option value="Transport">Transport</option>
+                                    <option value="Zipper">Zipper</option>
+                                    <option id="option-txn-cat-other" value="Others">Others</option>
+                                </select>
+                                <input class="display-none" name="txn-cat-others" type="text" placeholder="Other Category" autocomplete="off">
+                            </label>
+
+                            <label>Amount
+                                <input type="text" name="txn-amount" autocomplete="off">
+                            </label>
+
+                            <div class="row">
+                                <fieldset class="medium-12 columns">
+                                    <legend>Recurring Transaction</legend>
+                                        <input id="txn-non-recurring-new" class="input-radio" type="radio" name="txn-recurring" value="No" checked>
+                                        <label for="txn-non-recurring-new">Non-Recurring</label>
+                                        <input id="txn-recurring-new" class="input-radio" type="radio" name="txn-recurring" value="Yes">
+                                        <label for="txn-recurring-new">Recurring</label>
+                                </fieldset>
+                            </div>
+                            <!--Recurring Income-->
+                            <div class="row display-none txn-recurring-input">
+                                <div class="medium-3 columns">
+                                    <label>Frequency
+                                        <select name="txn-recurring-freq">
+                                            <option value="" selected hidden></option>
+                                            <option value="Daily">Daily</option>
+                                            <option value="Weekly">Weekly</option>
+                                            <option value="Monthly">Monthly</option>
+                                            <option value="Yearly">Yearly</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="medium-6 columns">
+                                    <label>Start Date
+                                        <input class="input-readonly reveal-add-txn-date-start" name="txn-recurring-start-date" type="text" readonly>
+                                    </label>
+                                </div>
+                                <div class="medium-3 columns">
+                                    <label>No. of Payments
+                                        <input type="text" name="txn-recurring-no-of-pmt" autocomplete="off">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <label>Payment Mode
+                                <select name="txn-pmt-mode">
+                                    <option value="" selected hidden></option>
+                                    <option value="Cash">Cash</option>
+                                    <option value="Credit Card">Credit Card</option>
+                                    <option id="option-txn-pmt-mode-other" value="Others">Others</option>
+                                </select>
+                                <input class="display-none" name="txn-pmt-mode-others" type="text" placeholder="Other Payment Mode" autocomplete="off">
+                            </label>
+
+                            <label>Payee
+                                <input type="text" name="txn-payee" autocomplete="off">
+                            </label>
+
+                            <label>Reminder
+                                <input class="input-readonly reveal-add-txn-reminder" name="txn-reminder" type="text" autocomplete="off" readonly>
+                            </label>
+
+                            <label>Status
+                                <select name="txn-status">
+                                    <option value="Uncleared" selected>Uncleared</option>
+                                    <option value="Cleared">Cleared</option>
+                                    <option value="Reconciled">Reconciled</option>
+                                    <option value="Void">Void</option>
+                                </select>
+                            </label>
+
+                            <button type="submit" class="button">Create</button>
+                        </div>
+                    </div>
+                </form>
+
+                <button type="button" class="close-button" data-close aria-label="Close modal">
+                    <span aria-hidden="true">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                </button>
+            </div><!--End Add Transaction-->
+
+            <!--Add Budget-->
+            <div id="reveal-add-budget" class="reveal" data-reveal data-reset-on-close="true">
+                <div class="columns">
+                    <div class="callout">
+                        <p>Add Budget</p>
+                    </div>
+                </div>
+
+                <form id="form-per-budget" action="/dashboard_post/per_budget" method="post">
+                    <div class="row">
+                        <div class="columns">
+                            <label>Category
+                                <select name="budget-cat">
+                                    <option value="" selected hidden disabled></option>
+                                    <option value="All">All Categories</option>
+                                    <option value="Automobile">Automobile</option>
+                                    <option value="Clothing">Clothing</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Insurance">Insurance</option>
+                                    <option value="Transport">Transport</option>
+                                    <option value="Zipper">Zipper</option>
+                                </select>
+                            </label>
+
+                            <label>Account
+                                <select name="budget-account">
+                                    <option value="" selected hidden disabled></option>
+                                    <option value="All">All Accounts</option>
+                                    {{#each all_per_acc_name}}
+                                        <option value="{{id}}">{{acc_name}}</option>
+                                    {{/each}}
+                                </select>
+                            </label>
+
+                            <label>Period
+                                <input class="input-readonly reveal-add-budget-period" name="budget-period" type="text" autocomplete="off" readonly>
+                            </label>
+
+                            <label>Amount
+                                <input type="text" name="budget-amount" autocomplete="off">
+                            </label>
+
+                            <button type="submit" class="button">Create</button>
+                        </div>
+                    </div>
+                </form>
+
+                <button class="close-button" data-close aria-label="Close modal" type="button">
+                    <span aria-hidden="true">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                </button>
+            </div><!--End Add Budget-->
+
+            <!--Add Debt-->
+            <div id="reveal-add-debt" class="reveal" data-reveal data-reset-on-close="true">
+                <div class="columns">
+                    <div class="callout">
+                        <p>Add Debt</p>
+                    </div>
+                </div>
+
+                <form action="#" method="post">
+                    <div class="row radio-button">
+                        <div class="medium-6 columns">
+                            <label><input type="radio" name="debt-type" checked><span>Receivable</span></label>
+                        </div>
+
+                        <div class="medium-6 columns">
+                            <label><input type="radio" name="debt-type"><span>Payable</span></label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="columns">
+                            <label>Lender / Borrower
+                                <input type="text" autocomplete="off">
+                            </label>
+
+                            <label>Amount
+                                <input type="text" autocomplete="off">
+                            </label>
+
+                            <label>Due Date
+                                <input id="reveal-add-debt-due-date" class="input-readonly" type="text" autocomplete="off" readonly>
+                            </label>
+
+                            <label>Description
+                                <input type="text" autocomplete="off">
+                            </label>
+
+                             <button type="submit" class="button">Create</button>
+                        </div>
+                    </div>
+                </form>
+
+                <button class="close-button" data-close aria-label="Close modal" type="button">
+                    <span aria-hidden="true">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </span>
+                </button>
+            </div><!--End Add Debt-->
+        </div> <!--End Reveal-->
+    </div><!--End Container-->
+
+    <script src="/js/dashboard/dashLayout_form.js"></script>
+    <script src="/js/dashboard/dashLayout.js"></script>
+</body>
+
+</html>

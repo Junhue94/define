@@ -1,0 +1,35 @@
+<header id="dash-personal-trends">
+    <div class="row">
+        <div class="columns">
+            <ul class="tabs" data-tabs id="charts-tab">
+                <li class="tabs-title is-active"><a href="#exp-date" aria-selected="true">Expenditure by Date</a></li>
+                <li class="tabs-title"><a href="#in-cat">Income by Category</a></li>
+                <li class="tabs-title"><a href="#exp-cat">Expense by Category</a></li>
+                <li class="tabs-title"><a href="#acc-bal">Account Balances</a></li>
+            </ul>
+
+            <div class="tabs-content" data-tabs-content="charts-tab">
+                <div id="exp-date" class="tabs-panel is-active">
+                    <div id="exp-date-linechart"></div>
+                </div>
+                <div id="in-cat" class="tabs-panel">
+                    <div id="in-cat-donutchart"></div>
+                    <div id="in-cat-stackedchart"></div>
+                </div>
+                <div id="exp-cat" class="tabs-panel">
+                    <div id="exp-cat-donutchart"></div>
+                    <div id="exp-cat-stackedchart"></div>
+                </div>
+                <div id="acc-bal" class="tabs-panel">
+                    <div id="acc-bal-linechart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--D3-->
+    <script src="/node_modules/d3/d3.js"></script>
+    <!--C3-->
+    <script src="/node_modules/c3/c3.js"></script>
+    <script src="/js/dashboard/personal/trends.js"></script>
+</header>
