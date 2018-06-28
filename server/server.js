@@ -30,7 +30,7 @@ mongoose.Promise = global.Promise;
 if (app.get('env') === 'development') {
     mongoose.connect('mongodb://localhost/define');
 } else {
-    mongoose.connect('mongodb://jycircles:zx55878@ds019866.mlab.com:19866/define');
+    mongoose.connect('mongodb://username:password@ds019866.mlab.com:19866/define');
 }
 
 // Test Database Connection
